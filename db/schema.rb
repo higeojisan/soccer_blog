@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731142120) do
+ActiveRecord::Schema.define(version: 20170802125918) do
+
+  create_table "article_tags", force: :cascade do |t|
+    t.integer  "article_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "link_url",   null: false
@@ -23,5 +30,11 @@ ActiveRecord::Schema.define(version: 20170731142120) do
   end
 
   add_index "articles", ["link_url"], name: "index_articles_on_link_url", unique: true
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

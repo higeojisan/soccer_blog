@@ -24,6 +24,9 @@
           <div class="media-body">
             <h4 class="media-heading"><%= article.title =%></h4>
             <p><%= article.content =%></p>
+            <% article.tags.each do |tag| %>
+            <span class="label label-default"><%= tag.name =%></span>
+            <% end %>
           </div>
         </div>
         <hr>
