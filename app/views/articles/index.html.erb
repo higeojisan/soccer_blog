@@ -12,7 +12,9 @@
 
 <% @articles.each do |article| %>
 <div class="container">
-    <div class="row">    
+    <div class="row">
+      <div class="col-sm-2 hidden-xs"></div>
+      <div class="col-sm-8">
         <div class="media">
           <div class="media-left">
             <a href="<%= article.link_url =%>">
@@ -24,7 +26,10 @@
             <p><%= article.content =%></p>
           </div>
         </div>
+        <hr>
+      </div>
+      <div class="col-sm-2 hidden-xs"></div>
     </div>    
 </div>
-<hr>
+
 <% end %>
