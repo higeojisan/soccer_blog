@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'articles#index'
   
+  #get 'articles/search' => 'articles#search'
+
   resources :tags, only: [:index] do 
     resource :articles, only: [:show]
   end 

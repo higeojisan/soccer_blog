@@ -1,3 +1,14 @@
+<% if @articles.empty? %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 hidden-xs"></div>
+    <div class="col-sm-8">
+      <div class="alert alert-warning">記事がありません</div>
+    </div>
+    <div class="col-sm-2 hidden-xs"></div>
+  </div>
+</div>
+<% else %>
 <% @articles.each do |article| %>
 <div class="container">
     <div class="row">
@@ -22,5 +33,5 @@
       <div class="col-sm-2 hidden-xs"></div>
     </div>    
 </div>
-
+<% end %>
 <% end %>
