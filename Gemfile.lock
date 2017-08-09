@@ -223,6 +223,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   nokogiri
   rails (= 4.2.5)
   sass-rails (~> 5.0)
