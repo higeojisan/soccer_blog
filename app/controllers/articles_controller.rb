@@ -12,7 +12,11 @@ class ArticlesController < ApplicationController
   end
   
   def show
-    tag = Tag.find(params[:tag_id])
-    @articles = tag.articles
-  end  
+    tag = Tag.find_by(id: params[:tag_id])
+    if tag.nil?
+      @articles = []
+    else
+      @articles = tag.articles
+    end
+  end
 end
