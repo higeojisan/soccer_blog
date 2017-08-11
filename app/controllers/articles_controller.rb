@@ -1,12 +1,12 @@
 class ArticlesController < ApplicationController
   def index
     if params[:q].nil?
-      @articles = Article.order('id DESC').page params[:page]
+      @articles = Article.order('id DESC').includes(:tags).page params[:page]
     else
       if params[:q].empty?
-        @articles = Article.order('id DESC').page params[:page]
+        @articles = Article.order('id DESC').includes(:tags).page params[:page]
       else
-        @articles = Article.where('content like ? or title like ?', "%#{params[:q]}%", "%#{params[:q]}%").page params[:page]
+        @articles = Article.where('content like ? or title like ?', "%#{params[:q]}%", "%#{params[:q]}%").includes(:tags).page params[:page]
       end
     end
   end
@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
     if tag.nil?
       @articles = []
     else
-      @articles = tag.articles.page params[:page]
+      @articles = tag.articles.includes(:tags).page params[:page]
     end
   end
 end
