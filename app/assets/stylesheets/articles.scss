@@ -3,3 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#infscr-loading {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.paginate {
+	display: none;
+}

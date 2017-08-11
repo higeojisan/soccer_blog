@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
     if tag.nil?
       @articles = []
     else
-      @articles = tag.articles
+      @articles = tag.articles.page params[:page]
     end
   end
 end
