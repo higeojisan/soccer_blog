@@ -4,6 +4,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+	padding-top: 70px;
+}
+
 #infscr-loading {
 	text-align: center;
 	margin: 0 auto;
@@ -11,4 +15,9 @@
 
 .paginate {
 	display: none;
+}
+
+.add-right-space {
+	padding-left: 5px;
+	margin-left: 5px;
 }
