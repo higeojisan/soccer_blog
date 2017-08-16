@@ -50,6 +50,11 @@
             <!--<li><a href="../navbar-static-top/">Static top</a></li>-->
             <li>
               <% if logged_in? %>
+              <a href="/favorites"><%= fa_icon("heart-o lg", text: "お気に入り一覧") %></a>
+              <% end %>
+            </li>  
+            <li>
+              <% if logged_in? %>
               <a href="/auth/logout"><%= fa_icon("sign-out lg", text: "ログアウト") %></a>
               <% else %>
               <a href="/auth/twitter"><%= fa_icon("twitter-square lg", text: "ログイン") %></a>

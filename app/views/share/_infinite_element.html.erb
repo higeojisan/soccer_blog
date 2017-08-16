@@ -1,3 +1,4 @@
+<%= render 'share/login_modal' %>
 <div class="articles">
 <% @articles.each do |article| %>
 <div class="container">
@@ -17,11 +18,19 @@
             <%= link_to "#{tag.name}", tag_articles_path(tag.id), class: "btn btn-default btn-sm" =%>
             <% end %>
             <br/>
-            <%= form_tag({:controller => 'articles', :action => 'index'}, :remote => true, :class => 'form-ajax') do %>
-            <%= hidden_field_tag :ajax_handler, 'handle_name1' %>
-            <%= button_tag :type => "submit", :class => "btn btn-default" do %>
-              <i class="fa fa-heart-o"></i>お気に入り
+            <% if logged_in? %>
+              <div id="logged-in" data-logged="true"></div>
+            <% else %>
+              <div id="logged-in" data-logged="false"></div>
             <% end %>
+            <% if article.favorites.find_by(user_id: session[:user_id]) %>
+              <button class="favorite-link btn btn-default btn-sm form-ajax favorite" data-id="<%= article.id %>">
+              <%= fa_icon("heart lg", text: "お気に入り") %>
+              </button>
+            <% else %>
+              <button class="favorite-link btn btn-default btn-sm form-ajax" data-id="<%= article.id %>">
+              <%= fa_icon("heart-o lg", text: "お気に入り") %>
+              </button>
             <% end %>
           </div>
         </div>

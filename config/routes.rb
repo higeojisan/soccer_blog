@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'favorites/index'
+
+  get 'favorites/create'
+
+  get 'favorites/destroy'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'articles#index'
@@ -9,6 +15,10 @@ Rails.application.routes.draw do
     resource :articles, only: [:show]
   end
   
+  get '/favorites' => 'favorites#index'
+  post '/favorites' => 'favorites#create'
+  delete '/favorites' => 'favorites#destroy'
+
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/logout', to: 'sessions#destroy', as: :logout
 
